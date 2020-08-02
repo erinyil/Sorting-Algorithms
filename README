@@ -9,8 +9,7 @@ Compile/run:
             where: sortAlg is -s1 -s2 or -s3
             outputMode is --print or --save
             
-NOTE: If the executable is run with no file provided, it will accept integers from the console and sort them once this input
-stops. (CTRL-D)
+NOTE: If the executable is run with no file provided, it will accept integers from the console and sort them on EOF (CTRL-D)
 
 Program Purpose:
 Compare Big-O of 3 common sorting algorithms on a variety of number lists (reverse sorted, almost sorted, etc.).
