@@ -1,50 +1,40 @@
-/**********************************************************
-* Erin Yilmaz
-* Homework 5
-* Comp 15
-* README
-*
-*********************************************************/
+Erin Yilmaz
 
 Compile/run:
      - Compile using
             make
      - run executable with
             ./sorter sortAlg outputMode [filename]
+            where: sortAlg is -s1 -s2 or -s3
+            outputMode is --print or --save
+            
+NOTE: If the executable is run with no file provided, it will accept integers from the console and sort them once this input
+stops. (CTRL-D)
 
 Program Purpose:
-This project allows students to implement sorting algorithms.
-
-Acknowledgements: I modified/reused some of my code from hw 3 (using vectors
-and ifstream and iostream). Geeks for geeks and stack overflow were where I
-looked up a lot of information for debugging and printing out to a file.
-I got part of the countDigit function from geeks for geeks. I watched youtube
-videos on shell sort to get a better understanding of how to implement it and
-how it works.
-
+Compare Big-O of 3 common sorting algorithms on a variety of number lists (reverse sorted, almost sorted, etc.).
 
 Files: 
-
-sorter.cpp: contains main() and calls functions for interactive or
+--sorter.cpp: contains main() and calls functions for interactive or
 automatic mode, and calls the functions that sort and print the numbers.
 
-sortAlgs.cpp: contains the implementation of functions
+--sortAlgs.cpp: contains the implementation of functions
  
-sortAlgs.h: contains the function declarations (interface)
+--sortAlgs.h: contains the function declarations (interface)
 
-Makefile: contains compliation instructions.
+--Makefile: contains compliation instructions.
 
 
 Data Structures: A vector of integers was used. Sorting algorithms explained:
 
-Insertion Sort-- The algorithm is in place and worst case scenario is O(n^2)
+Insertion Sort (s1)-- The algorithm is in place and worst case scenario is O(n^2)
 time. It works by placing a divider(index) between the sorted and unsorted
 sections of the list. As the divider moves rightward in the array, the sorted
 section grows and the unsorted section shrinks until the unsorted section is
 empty. The algorithm works with a loop, by moving the value in a slot to the
 left if the value to its left is greater than it.
 
-Radix Sort--The algorithm sorts by going through the list of numbers to be
+Radix Sort (s2)--The algorithm sorts by going through the list of numbers to be
 sorted, looking at a specific digit, and putting numbers with the same final
 digit into the same "bin" or dynamic array. Then it empties the numbers vector,
 and refills it in order starting with binZero and going up to binNine. It then
@@ -53,19 +43,10 @@ because the base of my number system is 10 and it takes up 10 bins for each
 digit. The big O for time is O(dN) where d is the number of digits of the
 maximum number (so d can be considered a constant).
 
-Shell Sort-- The algorithm sorts by repeatedly halving the "gap" between two
+Shell Sort (s3)-- The algorithm sorts by repeatedly halving the "gap" between two
 elements of the vector, and comparing them and swapping them if the element
 with the greater index is smaller. It goes through the whole array and does
 this for each element, then it halves the gap, and repeats the process until 
 the gap is 1, at which point it basically functions like insertion sort. The
 worst case time is O(n^2), but it is an in place sorting algorithm since no new
 memory was needed because swapping uses a constant amount of memory.
-
-Testing: I tried running my program with incorrect command line arguments
-and the wrong number of arguments. I frequently put print statements in the
-form of for loops that iterated through the vector so that I could see what
-elements were in the vector and their order. I wrote an isSorted function that
-I ran before and after sorting the numbers to test my sorting algorithms. I
-created many sequences of random numbers, some with and some without duplicates
-and ran the file with multiple sorting algorithms, comparing their outputs with
-diff.
